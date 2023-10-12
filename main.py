@@ -294,9 +294,57 @@ class MyServer(BaseHTTPRequestHandler):
                                 Email support,
                                 Help center access
                             </p>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Купить</button>
+                            <button type="button" class="w-100 btn btn-success btn-outline-light">Купить</button>
                         </div>
                     </div>
+                </div>
+                <div class="col-4">
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputName" class="form-label">Имя</label>
+                    <input name="name" type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
+                    <div id="nameHelp" class="form-text">Мы никогда не выдадим полиции Ваше имя.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail" class="form-label">Email</label>
+                    <input name="email" type="email" class="form-control" id="exampleInputEmail">
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
+                  </div>
+                  <button type="submit" class="btn btn-success">Отправить</button>
+                </form>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12 mt-5">
+                <p class="d-inline-flex gap-1">
+                  <a class="btn btn-success" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">
+                    Как купить?
+                  </a>
+                  <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                    Как доставить?
+                  </button>
+                    <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
+                    Какая гарантия?
+                  </button>
+                </p>
+                <div class="collapse" id="collapseExample1">
+                  <div class="card card-body">
+                    Где найдешь.
+                  </div>
+                </div>
+                <div class="collapse" id="collapseExample2">
+                  <div class="card card-body">
+                    Приезжай.
+                  </div>
+                </div>
+                <div class="collapse" id="collapseExample3">
+                  <div class="card card-body">
+                    Гарантий нет.
+                  </div>
+                </div>
                 </div>
             </div>
         </main>
@@ -324,7 +372,7 @@ class MyServer(BaseHTTPRequestHandler):
 
     """Специальный класс, который отвечает за обработку входящих запросов от клиентов"""
 
-    def do_Get(self):
+    def do_GET(self):
         """ Метод для обработки входящих GET-запросов """
         query_components = parse_qs(urlparse(self.path).query)
         print(query_components)
